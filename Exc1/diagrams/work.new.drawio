@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Страница — 1" id="2Cci-eRszU7AnDj9SaLf">
+    <mxGraphModel dx="2637" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-55" y="440" as="sourcePoint" />
+            <mxPoint x="-91" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-31" target="SQO2m_F7MG3Jh7lHC5NG-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-31" target="SQO2m_F7MG3Jh7lHC5NG-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-31" target="SQO2m_F7MG3Jh7lHC5NG-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-31" target="SQO2m_F7MG3Jh7lHC5NG-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-31" target="SQO2m_F7MG3Jh7lHC5NG-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-31" target="SQO2m_F7MG3Jh7lHC5NG-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-31" value="&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;Сотрудник медик&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="325" y="565" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-33" target="SQO2m_F7MG3Jh7lHC5NG-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-33" value="Поиск своего файла в хранилище" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="407.5" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-34" value="Хранилище с файлами" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="790" y="190" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-33" target="SQO2m_F7MG3Jh7lHC5NG-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-36" value="Начало" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-220" y="400" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-38" target="SQO2m_F7MG3Jh7lHC5NG-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-38" value="Просмотр и редактирование файла" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="605" y="410" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-40" target="SQO2m_F7MG3Jh7lHC5NG-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-40" value="Сохранение расписания" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="785" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-40" target="SQO2m_F7MG3Jh7lHC5NG-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-43" target="SQO2m_F7MG3Jh7lHC5NG-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-43" value="Файл с данными о записях пациентов" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="455" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-44" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-45" target="SQO2m_F7MG3Jh7lHC5NG-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-45" value="Поиск файлов о пациенте" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="955" y="407.5" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-46" value="Просмотр файлов пациента" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="1285" y="407.5" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-48" target="SQO2m_F7MG3Jh7lHC5NG-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-48" value="Файл пациента" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1145" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-45" target="SQO2m_F7MG3Jh7lHC5NG-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-51" target="SQO2m_F7MG3Jh7lHC5NG-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-51" value="Проверка доступа на основе принадлежности расписания врачу и только его пациентов (ABAC)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="-90" y="390" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-52" target="SQO2m_F7MG3Jh7lHC5NG-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-52" value="Расшифровка части хранилища" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="95" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SQO2m_F7MG3Jh7lHC5NG-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQO2m_F7MG3Jh7lHC5NG-52" target="SQO2m_F7MG3Jh7lHC5NG-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

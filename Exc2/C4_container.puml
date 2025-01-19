@@ -1,0 +1,123 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Person(administrator, "Administrator")
+Person(patient, "Patient")
+
+Container_Boundary(logService, "Сервис по хранение логов доступа к данным") {
+    Component(logServiceBack, "Back", "Java", "Сохраняет логи доступа и выгружает их")
+    ComponentDb(logServiceDB, "БД", "Postgres", "Хранит логи")
+
+    Rel(logServiceBack, logServiceDB, "Сохрание логов")
+}
+
+Container_Boundary(accessService, "Сервис по проверки доступа") {
+    Component(accessServiceBack, "Back", "Java", "Проверяет доступы пользователей")
+    ComponentDb(accessServiceDB, "БД", "Postgres", "Хранит связи атрибутов с данными")
+
+    Rel(accessServiceBack, accessServiceDB, "Сохрание данных")
+}
+
+note bottom of accessService
+На основе атрибутов (ABAC) проверяет доступ к данным:
+- пользователя
+- расписания
+- файлам
+
+Для администратора проверяются атрибуты:
+- время работы
+
+Для пациента проверяются атрибуты:
+- принадлежность данных или файла к пользователю 
+end note
+
+Container_Boundary(dataWarehouse, "Хранилище данных") {
+    Component(dataWarehouseGateway, "Gateway", "Nginx")
+    Component(dataWarehousePatients, "Patients", "Java", "Отвечает за доступ к персональным данным пользователей")
+    Component(dataWarehouseJournals, "Journals", "Java", "Отвечает за доступ к расписаниям врачей")
+    Component(dataWarehouseFiles, "Files", "Java", "Отвечает за доступ к файлам пользователей")
+
+    ComponentDb(dataWarehousePatientDB, "Patient БД", "Postgres")
+    ComponentDb(dataWarehouseJournalDB, "Journal БД", "Postgres")
+    ComponentDb(dataWarehouseFileDB, "File БД", "Postgres")
+
+    ComponentDb(dataWarehouseS3, "S3", "S3")
+
+    Rel(dataWarehousePatients, dataWarehousePatientDB, "Сохрание данных о пациенте")
+    Rel(dataWarehouseJournals, dataWarehouseJournalDB, "Сохрание данных о записях к врачу")
+    Rel(dataWarehouseFiles, dataWarehouseFileDB, "Сохрание метаинформации о файлах")
+    Rel(dataWarehouseFiles, dataWarehouseS3, "Сохрание файлов пациентов")
+
+    Rel(dataWarehouseGateway, dataWarehousePatients, "Маршрутизация")
+    Rel(dataWarehouseGateway, dataWarehouseJournals, "Маршрутизация")
+    Rel(dataWarehouseGateway, dataWarehouseFiles, "Маршрутизация")
+}
+
+note bottom of dataWarehousePatientDB
+Хранит персональную информацию о пользователях
+- ФИО, дату рождения, телефон и электронную почту
+- дополнительную информацию
+
+БД шифрует свои данные
+end note
+
+note bottom of dataWarehouseJournalDB
+Хранит пациентов записи к врачам:
+- ид пациета, врач, время
+
+БД шифрует свои данные
+end note
+
+note bottom of dataWarehouseFileDB
+Хранит связи файлов с пациентами
+
+БД шифрует свои данные
+end note
+
+note bottom of dataWarehouseS3
+Хранит файлы пациентами
+
+Шифрует свои данные
+end note
+
+note bottom of dataWarehouse
+Данные о пользователе уничтожаются автоматически в S3 и БД
+через N времени
+Или вручную пользователем через "Портал для клиентов"
+И вручную администратором по запросу пользователя через "Портал для сотрудников ресепшена"
+end note
+
+Container_Boundary(clientPortal, "Портал для клиентов") {
+    Component(clientPortalFront, "Front", "React")
+    Component(clientPortalBack, "Back", "Java")
+    ComponentDb(clientPortalDB, "БД", "Postgres", "Хранит данные для работы приложения")
+
+    Rel(clientPortalFront, clientPortalBack, "Использование API")
+    Rel(clientPortalBack, clientPortalDB, "Сохрание данных")
+}
+
+Container_Boundary(administratorPortal, "Портал для сотрудников ресепшена") {
+    Component(administratorPortalFront, "Front", "React")
+    Component(administratorPortalBack, "Back", "Java")
+    ComponentDb(administratorPortalDB, "БД", "Postgres", "Хранит данные для работы приложения")
+
+    Rel(administratorPortalFront, administratorPortalBack, "Использование API")
+    Rel(administratorPortalBack, administratorPortalDB, "Сохрание данных")
+}
+
+Rel(clientPortalBack, dataWarehouseGateway, "Сохранение записи о враче", "HTTPS")
+Rel(administratorPortalBack, dataWarehouseGateway, "Сохранение информации о пациенте", "HTTPS")
+
+Rel(patient, clientPortalFront, "Запись к врачу / Изменение своих данных / Просмотр файлов", "HTTPS")
+
+Rel(administrator, administratorPortalFront, "Просмотр / Регистрация пользователя", "HTTPS")
+
+Rel(dataWarehousePatients, accessServiceBack, "Проверка доступов к данным", "HTTPS")
+Rel(dataWarehouseJournals, accessServiceBack, "Проверка доступов к данным", "HTTPS")
+Rel(dataWarehouseFiles, accessServiceBack, "Проверка доступов к данным", "HTTPS")
+
+Rel(dataWarehousePatients, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
+Rel(dataWarehouseJournals, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
+Rel(dataWarehouseFiles, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
+
+@enduml

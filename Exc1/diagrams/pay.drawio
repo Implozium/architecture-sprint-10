@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Страница — 1" id="E136Fw00KbVGMRLXlZOT">
+    <mxGraphModel dx="2637" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-14" target="xR4suiVrJ3wf5P34Fl-H-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="380" as="sourcePoint" />
+            <mxPoint x="-110" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-3" target="xR4suiVrJ3wf5P34Fl-H-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-3" value="Добавление в ККМ" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-5" target="xR4suiVrJ3wf5P34Fl-H-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-220" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-5" value="Пациент" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-205" y="685" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-9" target="xR4suiVrJ3wf5P34Fl-H-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-9" target="xR4suiVrJ3wf5P34Fl-H-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-9" value="&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;Кассир&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="175" y="685" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-11" value="Добавление данных об оплате" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="522.5" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-12" value="1C Бухгалтерия предприятия" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="370" y="360" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-11" target="xR4suiVrJ3wf5P34Fl-H-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-14" value="Оплата услуги" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="-250" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-18" target="xR4suiVrJ3wf5P34Fl-H-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-18" value="Начало" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-410" y="520" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-19" value="ККМ" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="125" y="360" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-3" target="xR4suiVrJ3wf5P34Fl-H-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="xR4suiVrJ3wf5P34Fl-H-21" target="xR4suiVrJ3wf5P34Fl-H-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xR4suiVrJ3wf5P34Fl-H-21" value="Принятие оплаты" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

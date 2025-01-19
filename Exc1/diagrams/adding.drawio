@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Страница — 1" id="EvEViO8WF3rdGJSQM2_Z">
+    <mxGraphModel dx="1810" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="0_W8Tn_ZbzAfAkvgqXum-15" target="0_W8Tn_ZbzAfAkvgqXum-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="410" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0_W8Tn_ZbzAfAkvgqXum-14" target="0_W8Tn_ZbzAfAkvgqXum-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="410" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="0_W8Tn_ZbzAfAkvgqXum-8" target="0_W8Tn_ZbzAfAkvgqXum-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-8" value="&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;Сотрудник ресепшена&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="635" y="535" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-9" value="Добавление файла пациента в хранилище&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="377.5" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-10" value="Хранилище с файлами" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="370" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0_W8Tn_ZbzAfAkvgqXum-9" target="0_W8Tn_ZbzAfAkvgqXum-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-14" value="Файл с данными о пользователе" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="565" y="370" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0_W8Tn_ZbzAfAkvgqXum-15" value="Начало" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="370" width="80" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

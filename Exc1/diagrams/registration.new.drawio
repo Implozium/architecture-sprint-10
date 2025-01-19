@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Страница — 1" id="9AH8f0qQDF73SHNfBZND">
+    <mxGraphModel dx="2637" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sY22XHC2g8DuudLBimdb-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-35" target="sY22XHC2g8DuudLBimdb-37">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="230" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-26" target="sY22XHC2g8DuudLBimdb-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-26" value="Проверка данных" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-28" target="sY22XHC2g8DuudLBimdb-35">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="555" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-28" value="Пациент" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-65" y="535" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-31" target="sY22XHC2g8DuudLBimdb-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-31" target="sY22XHC2g8DuudLBimdb-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-31" target="sY22XHC2g8DuudLBimdb-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-31" value="&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;Сотрудник ресепшена&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="635" y="535" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-32" value="Регистрация пользователя в системе&lt;br&gt;&lt;br&gt;Добавление информации о пользователе в файл&amp;nbsp;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="345" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-33" value="Хранилище с файлами" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="860" y="160" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-32" target="sY22XHC2g8DuudLBimdb-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-35" value="Заполнение анкеты пациента" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="-110" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-37" target="sY22XHC2g8DuudLBimdb-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-37" value="Анкета с персональными данными о пользователе:&lt;br&gt;- ФИО&lt;br&gt;-&amp;nbsp;дата рождения&lt;br&gt;- телефон&lt;br&gt;- электронная почта&lt;br&gt;- дополнительная информация&lt;br&gt;&lt;br&gt;Представляет из себя документ" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="320" width="170" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-38" target="sY22XHC2g8DuudLBimdb-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-38" value="Начало" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-250" y="370" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-41" target="sY22XHC2g8DuudLBimdb-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-41" value="Проверка доступа на основе расписания (ABAC)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="370" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-44" target="sY22XHC2g8DuudLBimdb-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-44" value="Расшифровка хранилища" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="665" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sY22XHC2g8DuudLBimdb-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="sY22XHC2g8DuudLBimdb-44" target="sY22XHC2g8DuudLBimdb-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
