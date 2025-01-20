@@ -11,80 +11,66 @@ Container_Boundary(logService, "Сервис по хранение логов д
     Rel(logServiceBack, logServiceDB, "Сохрание логов")
 }
 
-Container_Boundary(accessService, "Сервис по проверки доступа") {
-    Component(accessServiceBack, "Back", "Java", "Проверяет доступы пользователей")
-    ComponentDb(accessServiceDB, "БД", "Postgres", "Хранит связи атрибутов с данными")
+Container_Boundary(iamService, "IAM сервис") {
+    Component(iamServiceAuthentication, "Authentication", "Java", "Проверяет аутентификацию пользователей")
+    Component(iamServiceAuthorization, "Authorization", "Java", "Проверяет авторизацию пользователей")
+    ComponentDb(iamServiceDB, "БД", "Postgres", "Хранит связи атрибутов с данными и данные пользователей")
 
-    Rel(accessServiceBack, accessServiceDB, "Сохрание данных")
+    Rel(iamServiceAuthentication, iamServiceDB, "Сохрание данных")
+    Rel(iamServiceAuthorization, iamServiceDB, "Сохрание данных")
 }
 
-note bottom of accessService
-На основе атрибутов (ABAC) проверяет доступ к данным:
-- пользователя
+note bottom of iamServiceAuthorization
+На основе атрибутов полльзователя (ABAC) проверяет доступ к данным по тегам:
+- персональной информации пациента
+- мед книжки
+- данных анализов
 - расписания
 - файлам
 
-Для администратора проверяются атрибуты:
-- время работы
+Администратор имеет доступ к тегам "PII" когда имеет атрибут "работает", который проставляется во время его работы
 
-Для пациента проверяются атрибуты:
-- принадлежность данных или файла к пользователю 
+Пациент имеет доступ к тегам "PII", "PHI", "Клинические данные", которые связаны с ним по его идентификатору
 end note
 
-Container_Boundary(dataWarehouse, "Хранилище данных") {
-    Component(dataWarehouseGateway, "Gateway", "Nginx")
-    Component(dataWarehousePatients, "Patients", "Java", "Отвечает за доступ к персональным данным пользователей")
-    Component(dataWarehouseJournals, "Journals", "Java", "Отвечает за доступ к расписаниям врачей")
-    Component(dataWarehouseFiles, "Files", "Java", "Отвечает за доступ к файлам пользователей")
+Container_Boundary(patientService, "Сервис по хранению данных пользователей") {
+    Component(patientsCore, "Patients", "Java", "Отвечает за доступ к персональным данным пользователей")
+    ComponentDb(patientDB, "Patient БД", "Postgres")
+    ComponentDb(patientS3, "S3", "S3")
 
-    ComponentDb(dataWarehousePatientDB, "Patient БД", "Postgres")
-    ComponentDb(dataWarehouseJournalDB, "Journal БД", "Postgres")
-    ComponentDb(dataWarehouseFileDB, "File БД", "Postgres")
-
-    ComponentDb(dataWarehouseS3, "S3", "S3")
-
-    Rel(dataWarehousePatients, dataWarehousePatientDB, "Сохрание данных о пациенте")
-    Rel(dataWarehouseJournals, dataWarehouseJournalDB, "Сохрание данных о записях к врачу")
-    Rel(dataWarehouseFiles, dataWarehouseFileDB, "Сохрание метаинформации о файлах")
-    Rel(dataWarehouseFiles, dataWarehouseS3, "Сохрание файлов пациентов")
-
-    Rel(dataWarehouseGateway, dataWarehousePatients, "Маршрутизация")
-    Rel(dataWarehouseGateway, dataWarehouseJournals, "Маршрутизация")
-    Rel(dataWarehouseGateway, dataWarehouseFiles, "Маршрутизация")
+    Rel(patientsCore, patientS3, "Сохрание файлов пациентов")
+    Rel(patientsCore, patientDB, "Сохрание данных о пациенте")
 }
 
-note bottom of dataWarehousePatientDB
+note bottom of patientDB
 Хранит персональную информацию о пользователях
-- ФИО, дату рождения, телефон и электронную почту
-- дополнительную информацию
+- ФИО, дату рождения, телефон и электронную почту: имеет тег "PII"
+- дополнительную информацию: имеет тег "PII"
+- медицинскую книжку: имеет тег "PHI"
+- результаты анализов: имеет тег "Клинические данные"
+- связи с файлами
 
 БД шифрует свои данные
 end note
 
-note bottom of dataWarehouseJournalDB
-Хранит пациентов записи к врачам:
-- ид пациета, врач, время
-
-БД шифрует свои данные
-end note
-
-note bottom of dataWarehouseFileDB
-Хранит связи файлов с пациентами
-
-БД шифрует свои данные
-end note
-
-note bottom of dataWarehouseS3
-Хранит файлы пациентами
+note bottom of patientS3
+Хранит файлы пользователей (снимки, результаты анализов и прочее): имеет тег "Клинические данные"
 
 Шифрует свои данные
 end note
 
-note bottom of dataWarehouse
-Данные о пользователе уничтожаются автоматически в S3 и БД
-через N времени
-Или вручную пользователем через "Портал для клиентов"
-И вручную администратором по запросу пользователя через "Портал для сотрудников ресепшена"
+Container_Boundary(journalService, "Сервис по хранению расписаний") {
+    Component(journalCore, "Journals", "Java", "Отвечает за доступ к расписаниям врачей")
+    ComponentDb(journalDB, "Journal БД", "Postgres")
+
+    Rel(journalCore, journalDB, "Сохрание данных о записях к врачу")
+}
+
+note bottom of journalDB
+Хранит пациентов записи к врачам:
+- ид пациета, врач, время: имеет тег "Запись к врачу"
+
+БД шифрует свои данные
 end note
 
 Container_Boundary(clientPortal, "Портал для клиентов") {
@@ -105,19 +91,22 @@ Container_Boundary(administratorPortal, "Портал для сотрудник�
     Rel(administratorPortalBack, administratorPortalDB, "Сохрание данных")
 }
 
-Rel(clientPortalBack, dataWarehouseGateway, "Сохранение записи о враче", "HTTPS")
-Rel(administratorPortalBack, dataWarehouseGateway, "Сохранение информации о пациенте", "HTTPS")
+Rel(clientPortalBack, journalCore, "Сохранение записи о враче", "HTTPS")
+Rel(clientPortalBack, patientsCore, "Просмотр и изменение информации о пациенте", "HTTPS")
+Rel(clientPortalBack, iamServiceAuthentication, "Проверка пациента на доступа к ресурсам", "HTTPS")
+
+Rel(administratorPortalBack, patientsCore, "Сохранение информации о пациенте", "HTTPS")
+Rel(administratorPortalBack, journalCore, "Просмотр информации о записи к врачу", "HTTPS")
+Rel(administratorPortalBack, iamServiceAuthentication, "Проверка администратора на доступа к ресурсам", "HTTPS")
 
 Rel(patient, clientPortalFront, "Запись к врачу / Изменение своих данных / Просмотр файлов", "HTTPS")
 
 Rel(administrator, administratorPortalFront, "Просмотр / Регистрация пользователя", "HTTPS")
 
-Rel(dataWarehousePatients, accessServiceBack, "Проверка доступов к данным", "HTTPS")
-Rel(dataWarehouseJournals, accessServiceBack, "Проверка доступов к данным", "HTTPS")
-Rel(dataWarehouseFiles, accessServiceBack, "Проверка доступов к данным", "HTTPS")
+Rel(patientsCore, iamServiceAuthorization, "Проверка доступов к данным", "HTTPS")
+Rel(journalCore, iamServiceAuthorization, "Проверка доступов к данным", "HTTPS")
 
-Rel(dataWarehousePatients, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
-Rel(dataWarehouseJournals, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
-Rel(dataWarehouseFiles, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
+Rel(patientsCore, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
+Rel(journalCore, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
 
 @enduml
