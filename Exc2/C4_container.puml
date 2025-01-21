@@ -4,17 +4,17 @@
 Person(administrator, "Administrator")
 Person(patient, "Patient")
 
-Container_Boundary(logService, "Сервис по хранение логов доступа к данным") {
-    Component(logServiceBack, "Back", "Java", "Сохраняет логи доступа и выгружает их")
-    ComponentDb(logServiceDB, "БД", "Postgres", "Хранит логи")
+System_Boundary(logSystem, "Система хранения логов доступа к данным") {
+    Container(logService, "Log Service", "Java", "Сохраняет логи доступа и выгружает их")
+    ContainerDb(logServiceDB, "БД", "Postgres", "Хранит логи")
 
-    Rel(logServiceBack, logServiceDB, "Сохрание логов")
+    Rel(logService, logServiceDB, "Сохрание логов")
 }
 
-Container_Boundary(iamService, "IAM сервис") {
-    Component(iamServiceAuthentication, "Authentication", "Java", "Проверяет аутентификацию пользователей")
-    Component(iamServiceAuthorization, "Authorization", "Java", "Проверяет авторизацию пользователей")
-    ComponentDb(iamServiceDB, "БД", "Postgres", "Хранит связи атрибутов с данными и данные пользователей")
+System_Boundary(iamSystem, "IAM") {
+    Container(iamServiceAuthentication, "Authentication", "Java", "Сервис по проверке аутентификации пользователей")
+    Container(iamServiceAuthorization, "Authorization", "Java", "Сервис по проверке авторизации пользователей")
+    ContainerDb(iamServiceDB, "БД", "Postgres", "Хранит связи атрибутов с данными и данные пользователей")
 
     Rel(iamServiceAuthentication, iamServiceDB, "Сохрание данных")
     Rel(iamServiceAuthorization, iamServiceDB, "Сохрание данных")
@@ -33,22 +33,33 @@ note bottom of iamServiceAuthorization
 Пациент имеет доступ к тегам "PII", "PHI", "Клинические данные", которые связаны с ним по его идентификатору
 end note
 
-Container_Boundary(patientService, "Сервис по хранению данных пользователей") {
-    Component(patientsCore, "Patients", "Java", "Отвечает за доступ к персональным данным пользователей")
-    ComponentDb(patientDB, "Patient БД", "Postgres")
-    ComponentDb(patientS3, "S3", "S3")
+System_Boundary(patientSystem, "Система по хранению данных пользователей") {
+    Container(patientService, "Patient", "Java", "Сервис отвечающий за доступ к персональным данным пользователей")
+    ContainerDb(patientPIIDB, "Patient PII БД", "Postgres", "Хранит PII данные пользователей")
+    ContainerDb(patientDB, "Patient БД", "Postgres", "Хранит PHI и клинические данные пользователей")
+    Container(patientS3, "S3", "S3")
 
-    Rel(patientsCore, patientS3, "Сохрание файлов пациентов")
-    Rel(patientsCore, patientDB, "Сохрание данных о пациенте")
+    Rel(patientService, patientS3, "Сохрание файлов пациентов")
+    Rel(patientService, patientPIIDB, "Сохрание PII данных о пациенте")
+    Rel(patientService, patientDB, "Сохрание данных о пациенте")
 }
 
-note bottom of patientDB
+note bottom of patientPIIDB
 Хранит персональную информацию о пользователях
 - ФИО, дату рождения, телефон и электронную почту: имеет тег "PII"
 - дополнительную информацию: имеет тег "PII"
-- медицинскую книжку: имеет тег "PHI"
+
+Все данные в этой БД имеет тег "PII".
+
+БД шифрует свои данные
+end note
+
+note bottom of patientDB
+Хранит остальную информацию о пользователях
 - результаты анализов: имеет тег "Клинические данные"
 - связи с файлами
+
+Данные размечаются тегами автоматически в зависимости нахождения в определенной таблице
 
 БД шифрует свои данные
 end note
@@ -59,54 +70,52 @@ note bottom of patientS3
 Шифрует свои данные
 end note
 
-Container_Boundary(journalService, "Сервис по хранению расписаний") {
-    Component(journalCore, "Journals", "Java", "Отвечает за доступ к расписаниям врачей")
-    ComponentDb(journalDB, "Journal БД", "Postgres")
+System_Boundary(journalSystem, "Система по хранению расписаний") {
+    Container(journalService, "Journals", "Java", "Сервис отвечающий за доступ к расписаниям врачей")
+    ContainerDb(journalDB, "Journal БД", "Postgres")
 
-    Rel(journalCore, journalDB, "Сохрание данных о записях к врачу")
+    Rel(journalService, journalDB, "Сохрание данных о записях к врачу")
 }
 
 note bottom of journalDB
 Хранит пациентов записи к врачам:
 - ид пациета, врач, время: имеет тег "Запись к врачу"
 
+Данные размечаются тегами автоматически в зависимости нахождения в определенной таблице
+
 БД шифрует свои данные
 end note
 
-Container_Boundary(clientPortal, "Портал для клиентов") {
-    Component(clientPortalFront, "Front", "React")
-    Component(clientPortalBack, "Back", "Java")
-    ComponentDb(clientPortalDB, "БД", "Postgres", "Хранит данные для работы приложения")
+System_Boundary(clientPortal, "Портал для клиентов") {
+    Container(clientPortalFront, "Front", "React", "Сайт")
+    Container(clientPortalBack, "Back", "Java")
 
     Rel(clientPortalFront, clientPortalBack, "Использование API")
-    Rel(clientPortalBack, clientPortalDB, "Сохрание данных")
 }
 
-Container_Boundary(administratorPortal, "Портал для сотрудников ресепшена") {
-    Component(administratorPortalFront, "Front", "React")
-    Component(administratorPortalBack, "Back", "Java")
-    ComponentDb(administratorPortalDB, "БД", "Postgres", "Хранит данные для работы приложения")
+System_Boundary(administratorPortal, "Портал для сотрудников ресепшена") {
+    Container(administratorPortalFront, "Front", "React", "Сайт")
+    Container(administratorPortalBack, "Back", "Java")
 
     Rel(administratorPortalFront, administratorPortalBack, "Использование API")
-    Rel(administratorPortalBack, administratorPortalDB, "Сохрание данных")
 }
 
-Rel(clientPortalBack, journalCore, "Сохранение записи о враче", "HTTPS")
-Rel(clientPortalBack, patientsCore, "Просмотр и изменение информации о пациенте", "HTTPS")
+Rel(clientPortalBack, journalService, "Сохранение записи о враче", "HTTPS")
+Rel(clientPortalBack, patientService, "Просмотр и изменение информации о пациенте", "HTTPS")
 Rel(clientPortalBack, iamServiceAuthentication, "Проверка пациента на доступа к ресурсам", "HTTPS")
 
-Rel(administratorPortalBack, patientsCore, "Сохранение информации о пациенте", "HTTPS")
-Rel(administratorPortalBack, journalCore, "Просмотр информации о записи к врачу", "HTTPS")
+Rel(administratorPortalBack, patientService, "Сохранение информации о пациенте", "HTTPS")
+Rel(administratorPortalBack, journalService, "Просмотр информации о записи к врачу", "HTTPS")
 Rel(administratorPortalBack, iamServiceAuthentication, "Проверка администратора на доступа к ресурсам", "HTTPS")
 
 Rel(patient, clientPortalFront, "Запись к врачу / Изменение своих данных / Просмотр файлов", "HTTPS")
 
 Rel(administrator, administratorPortalFront, "Просмотр / Регистрация пользователя", "HTTPS")
 
-Rel(patientsCore, iamServiceAuthorization, "Проверка доступов к данным", "HTTPS")
-Rel(journalCore, iamServiceAuthorization, "Проверка доступов к данным", "HTTPS")
+Rel(patientService, iamServiceAuthorization, "Проверка доступов к данным", "HTTPS")
+Rel(journalService, iamServiceAuthorization, "Проверка доступов к данным", "HTTPS")
 
-Rel(patientsCore, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
-Rel(journalCore, logServiceBack, "Сохранение информации о запросе данных", "HTTPS")
+Rel(patientService, logService, "Сохранение информации о запросе данных", "HTTPS")
+Rel(journalService, logService, "Сохранение информации о запросе данных", "HTTPS")
 
 @enduml
